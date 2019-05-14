@@ -6,11 +6,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class EscolherPruduto {
+public class EscolherPruduto extends PageBase{
     private final String idProdutoSelecionado = "nm-product-img-link";
     private WebDriver driver;
 
     public EscolherPruduto(WebDriver driver) {
+        super(driver);
         this.driver = driver;
     }
     public void clicarProdutoSelecionado() {

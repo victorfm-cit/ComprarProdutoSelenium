@@ -6,12 +6,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class AdicionarCarrinho {
+public class AdicionarCarrinho  extends PageBase{
     private final String idBtnComprar = "btnAdicionarCarrinho";
     private WebDriver driver;
 
     public AdicionarCarrinho(WebDriver driver) {
+        super(driver);
         this.driver = driver;
+
     }
 
     public void clicarBtnComprar() {

@@ -7,7 +7,7 @@ import pages.*;
 
 public class NewTesteCompra {
     private WebDriver driver;
-    private Dashboard dashboard;
+    private PageBase pageBase;
     private EscolherPruduto escolherPruduto;
     //private FormasDePagamento formasDePagamento;
     private AdicionarCarrinho adicionarCarrinho;
@@ -19,7 +19,7 @@ public class NewTesteCompra {
        driver = new ChromeDriver();
        driver.get("https://www.casasbahia.com.br/");
        driver.manage().window().maximize();
-       dashboard = new Dashboard(driver);
+       pageBase = new PageBase(driver);
        escolherPruduto = new EscolherPruduto(driver);
        //formasDePagamento = new FormasDePagamento(driver);
        adicionarCarrinho = new AdicionarCarrinho(driver);
@@ -34,9 +34,8 @@ public class NewTesteCompra {
 
     @Test
     public void testarComprarProduct() {
-         this.dashboard.clicarBarraBuscar();
-         this.dashboard.clicarBarraBuscar();
-         this.dashboard.escreverBarraBusca("moto g5");
+        this.adicionarCarrinho.clicarBarraBuscar();
+        this.adicionarCarrinho.escreverBarraBusca("moto g5");
          this.escolherPruduto.clicarProdutoSelecionado();
          this.adicionarCarrinho.clicarBtnComprar();
          //this.formasDePagamento.btnContinuarForPag();

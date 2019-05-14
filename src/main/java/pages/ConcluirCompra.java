@@ -6,11 +6,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ConcluirCompra {
+public class ConcluirCompra extends PageBase{
     private final String idBtnConluirCompra = "concluirCompra";
     private WebDriver driver;
 
     public ConcluirCompra(WebDriver driver) {
+        super(driver);
         this.driver = driver;
     }
 
