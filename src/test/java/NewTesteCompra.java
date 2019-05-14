@@ -3,16 +3,15 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.ConcluirCompra;
-import pages.Dashboard;
-import pages.FormasDePagamento;
-import pages.ProdutoSelecionado;
+import pages.*;
 
 public class NewTesteCompra {
     private WebDriver driver;
     private Dashboard dashboard;
-    private ProdutoSelecionado produtoSelecionado;
-    private FormasDePagamento formasDePagamento;
+    private EscolherPruduto escolherPruduto;
+    //private FormasDePagamento formasDePagamento;
+    private AdicionarCarrinho adicionarCarrinho;
+    private GarantiaEstendida garantiaEstendida;
     private ConcluirCompra concluirCompra;
 
     @Before
@@ -21,9 +20,11 @@ public class NewTesteCompra {
        driver.get("https://www.casasbahia.com.br/");
        driver.manage().window().maximize();
        dashboard = new Dashboard(driver);
-       produtoSelecionado = new ProdutoSelecionado(driver);
-       formasDePagamento = new FormasDePagamento(driver);
+       escolherPruduto = new EscolherPruduto(driver);
+       //formasDePagamento = new FormasDePagamento(driver);
+       adicionarCarrinho = new AdicionarCarrinho(driver);
        concluirCompra = new ConcluirCompra(driver);
+       garantiaEstendida = new GarantiaEstendida(driver);
     }
 
     @After
@@ -33,10 +34,15 @@ public class NewTesteCompra {
 
     @Test
     public void testarComprarProduct() {
-         this.dashboard.clicarProdutoCompra();
-         this.produtoSelecionado.btnAdicionarCarrinho();
-         this.formasDePagamento.btnContinuarForPag();
-         this.concluirCompra.btnCocluirCompra();
+         this.dashboard.clicarBarraBuscar();
+         this.dashboard.clicarBarraBuscar();
+         this.dashboard.escreverBarraBusca("moto g5");
+         this.escolherPruduto.clicarProdutoSelecionado();
+         this.adicionarCarrinho.clicarBtnComprar();
+         //this.formasDePagamento.btnContinuarForPag();
+         this.garantiaEstendida.clicarBotaoContinuar();
+         this.concluirCompra.btnConcluirCompra();
+
     }
 }
 
